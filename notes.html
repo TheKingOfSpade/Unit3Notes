@@ -38,6 +38,12 @@
   const b = document.getElementById('b');
   const c = document.getElementById('c');
   const ans = document.querySelector('p');
+  firstName.addEventListener('change', function(e){
+    let first = firstName.value;
+    let last = lastName.value;
+    let fullName = `Hello ${first} ${last}!`;
+    full.textContent = fullName;
+  });
   const calculateButton = document.getElementById('calc');
   const clearButton = document.getElementById('clear');
 
