@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hog Clicker</title>
+    <link href="StyleClicker.css" rel="stylesheet" type="text/css">
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h2 id="lose">User goes here</h2>
+        <div class="scoreplace">
+            <h3 id="score">Give Dark Elixar: 0</h3>
+        </div>
+        <div class="text">
+
+        </div>
+        <input type="text" id="NAME" name="NAME" placeholder="Enter name">
+        <button id="submit">Submit</button>
+        <div class="row">
+            <div class="avatar">
+                <img id="picture" height="100" width="100" alt="your avatar" src="https://img.clasher.us/images/full/5dcf88e0d44ba57f29414da0.jpg">
+            </div>
+        </div>
+        <button id="click">Feed me Dark Elixar!</button>
+        <div class="row">
+            <fieldset>
+                <legend><h3>Item Shop</h3></legend>
+                <div class="row">
+                    <label for="1">Feed one more Dark Elixar at a time. (Need 50 Dark Elixar)</label>
+                    <button id="1">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="5">Feed 5 more Dark Elixar at a time. (Need 250 Dark Eixar)</label>
+                    <button id="5">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="10">Feed 10 more Dark Elixar at a time (Need 2000 Dark Elixar)</label>
+                    <button id="10">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="25">Feed 25 more Dark Elixar at a time (Need 10,000 Dark Elixar)</label>
+                    <button id="25">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="50">Feed 50 more Dark Elixar at a time (Need 42,333 Dark Elixar)</label>
+                    <button id="50">Buy</button>
+                </div>
+                <div class="row">
+                    <label for="100">Feed 100 more Dark Elixar at a time (Need 1,000,000 Dark Elixar)</label>
+                    <button id="100">Buy</button>
+                </div>
+                <br>
+                <div class="row">
+                    <label for="win">Win the game (you just win the game)</label>
+                    <button id="win">Buy</button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.text');
+
+    const user = document.querySelector('user');
+    const NAME = document.getElementById('NAME');
+    const submit = document.getElementById('submit');
+
+    submit.addEventListener('click', function(e){
+        let displayuser = NAME.value;
+
+        const actualuser = document.createElement('h2');
+        actualuser.innerHTML = `${displayuser}`;
+        content.insertAdjacentElement('afterbegin', actualuser);
+
+        const unwantedElement = document.querySelector('#lose');
+        unwantedElement.remove();
+
+        NAME.classList.add("hidden");
+        submit.classList.add("hidden");
+    });
+
+    let score = document.getElementById('score');
+    const scorePlace = document.querySelector('.scoreplace');
+    const click = document.getElementById('click');
+    const picture = document.getElementById('picture');
+
+    score = 0;
+    click.addEventListener('click', function(e){
+        score++;
+        scorePlace.innerHTML = `<h3 id="score">Dark Elixar fed to Hog Rider: ${score}</h3>`;
+
+        if(score >= 10000){
+            picture.src = "https://i1.sndcdn.com/artworks-8rfo9Tam1BbUm3gR-Dgdz8Q-t500x500.jpg";
+        }
+        else if(score >= 1000){
+            picture.src = "https://img.clasher.us/images/full/5dcf7e89d44ba57f29414d7f.jpg";
+        }
+        else if(score >= 500){
+            picture.src = "https://static.wikia.nocookie.net/clashofclans/images/2/2d/Hog_Glider_info.png/revision/latest?cb=20190615155934";
+        }
+        else if(score >= 100){
+            picture.src = "https://i.kym-cdn.com/photos/images/original/002/279/355/966.jpg";
+        }
+        else if (score >= 70){
+            picture.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUCfBvuF19aoGo8dz8Z61xfObLqRGk6LHwfAzvq6KIs7lIkS8QKQ1eoTMr-yiO4Bo630w&usqp=CAU";
+        }
+        else if(score >= 69){
+            picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3f1bc4f9-81b0-485c-849d-79d164292b61/da5wo12-06cb2d87-5ff6-4ff2-8382-96d271349ecc.jpg/v1/fill/w_1024,h_768,q_75,strp/hog_rider__clash_of_clans__by_jepoyeee_da5wo12-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzY4IiwicGF0aCI6IlwvZlwvM2YxYmM0ZjktODFiMC00ODVjLTg0OWQtNzlkMTY0MjkyYjYxXC9kYTV3bzEyLTA2Y2IyZDg3LTVmZjYtNGZmMi04MzgyLTk2ZDI3MTM0OWVjYy5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.TqdafDVn0xy_gXwbmYKsU_GCfUKJR1Ru3qXfvIwecOs";
+        }
+        else if (score >= 60){
+            picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/12b34d2c-1a36-4767-bd44-89161b1736d0/daqv5q8-f2e5d882-79e0-4f68-8ed7-b5782b51989f.jpg/v1/fill/w_1024,h_1536,q_75,strp/hog_rider_by_mrsynnerster_daqv5q8-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTUzNiIsInBhdGgiOiJcL2ZcLzEyYjM0ZDJjLTFhMzYtNDc2Ny1iZDQ0LTg5MTYxYjE3MzZkMFwvZGFxdjVxOC1mMmU1ZDg4Mi03OWUwLTRmNjgtOGVkNy1iNTc4MmI1MTk4OWYuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Q02ioiRzMa2fLmdc0es5sfIlp7KnXS-TYVyJUT8I0mU";
+        }
+    });
+
+    const times2 = document.getElementById('1');
+
+    let i = 1;
+
+    times2.addEventListener('click', function(e){
+        if(score >= 50){
+            score -= 50;
+            click.addEventListener('click', function(e){
+                score += i;
+                scorePlace.innerHTML = `<h3 id="score">Dark Elixar for Hog Rider: ${score}</h3>`;
+            });
+        }
+    });
+
+    const times5 = document.getElementById('5');
+
+    let q = 5;
+
+    times5.addEventListener('click', function(e){
+        if(score >= 250){
+            score -= 250;
+            click.addEventListener('click', function(e){
+                score += q;
+                scorePlace.innerHTML = `<h3 id="score">Dark Elixar for Hog Rider: ${score}</h3>`;
+            });
+        }
+    });
+
+    const times10 = document.getElementById('5');
+
+    let w = 5;
+
+    times10.addEventListener('click', function(e){
+        if(score >= 2000){
+            score -= 2000;
+            click.addEventListener('click', function(e){
+                score += w;
+                scorePlace.innerHTML = `<h3 id="score">Dark Elixar for Hog Rider: ${score}</h3>`;
+            });
+        }
+    });
+
+
+</script>
+</body>
+</html>
