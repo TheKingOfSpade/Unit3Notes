@@ -13,24 +13,24 @@
 <body>
 <div class="container">
     <div class="content">
-        <h2 id="lose">User goes here</h2>
+        <h2 id="lose">Username here:</h2>
         <div class="scoreplace">
-            <h3 id="score">Give Dark Elixar: 0</h3>
+            <h1 id="score">Help me get Dark Elixar to power up!: 0</h1>
         </div>
         <div class="text">
 
         </div>
-        <input type="text" id="NAME" name="NAME" placeholder="Enter name">
+        <input type="text" id="NAME" name="NAME" placeholder="Username:">
         <button id="submit">Submit</button>
         <div class="row">
             <div class="avatar">
-                <img id="picture" height="100" width="100" alt="your avatar" src="https://img.clasher.us/images/full/5dcf88e0d44ba57f29414da0.jpg">
+                <img id="picture" height="200" width="200" alt="your avatar" src="https://img.clasher.us/images/full/5dcf88e0d44ba57f29414da0.jpg">
             </div>
         </div>
-        <button id="click">Feed me Dark Elixar!</button>
+        <button id="click">Give me more!</button>
         <div class="row">
             <fieldset>
-                <legend><h3>Item Shop</h3></legend>
+                <legend><h2>Power Ups</h2></legend>
                 <div class="row">
                     <label for="1">Feed one more Dark Elixar at a time. (Need 50 Dark Elixar)</label>
                     <button id="1">Buy</button>
@@ -116,6 +116,9 @@
         else if (score >= 60){
             picture.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/12b34d2c-1a36-4767-bd44-89161b1736d0/daqv5q8-f2e5d882-79e0-4f68-8ed7-b5782b51989f.jpg/v1/fill/w_1024,h_1536,q_75,strp/hog_rider_by_mrsynnerster_daqv5q8-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTUzNiIsInBhdGgiOiJcL2ZcLzEyYjM0ZDJjLTFhMzYtNDc2Ny1iZDQ0LTg5MTYxYjE3MzZkMFwvZGFxdjVxOC1mMmU1ZDg4Mi03OWUwLTRmNjgtOGVkNy1iNTc4MmI1MTk4OWYuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Q02ioiRzMa2fLmdc0es5sfIlp7KnXS-TYVyJUT8I0mU";
         }
+        else if (score >= 100000){
+            //(Insert remove everything here)
+        }
     });
 
     const times2 = document.getElementById('1');
@@ -155,7 +158,7 @@
             score -= 2000;
             click.addEventListener('click', function(e){
                 score += w;
-                scorePlace.innerHTML = `<h3 id="score">Dark Elixar for Hog Rider: ${score}</h3>`;
+                scorePlace.innerHTML = `<h1 id="score">Dark Elixar for Hog Rider: ${score}</h1>`;
             });
         }
     });
